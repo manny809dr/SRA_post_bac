@@ -83,7 +83,7 @@ if(!file.exists('SRAmetadb.sqlite'
 sra_con <- dbConnect(SQLite(),sqlfile)
 ```
 
-##Metadata for SRA datasets
+## Metadata for SRA datasets
 
 ```r
 x=1293541:1293641
