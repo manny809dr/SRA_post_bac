@@ -1,0 +1,21 @@
+---
+title: "Bioconductor"
+output: html_document
+---
+
+```{r comment = NA}
+library(SRAdb)
+sqlfile <-'SRAmetadb.sqlite'
+if(!file.exists('SRAmetadb.sqlite'
+)) sqlfile <<- getSRAdbFile()
+sra_con <- dbConnect(SQLite(),sqlfile)
+```
+
+##Metadata for SRA datasets
+```{r comment=NA}
+x=1293541:1293641
+str=sprintf("SRR%d",x)
+a <- listSRAfile (in_acc = c(str), sra_con = sra_con, fileType = 'sra', srcType='fasp')
+a
+```
+
