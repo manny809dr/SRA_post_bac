@@ -3,6 +3,7 @@ title: "Bioconductor"
 output: html_document
 ---
 
+
 ```{r comment = NA}
 library(SRAdb)
 sqlfile <-'SRAmetadb.sqlite'
@@ -16,6 +17,14 @@ sra_con <- dbConnect(SQLite(),sqlfile)
 x=1293541:1293641
 str=sprintf("SRR%d",x)
 a <- listSRAfile (in_acc = c(str), sra_con = sra_con, fileType = 'sra', srcType='fasp')
+a
+```
+
+## Metadata for SRA datasets
+```{r comment=NA}
+x=607446:607546
+samples=sprintf("SRS%d",x)
+a <- dbGetQuery(sra_con,"select * from sample where sample_accession = 'SRS607446'")
 a
 ```
 
